@@ -1,0 +1,193 @@
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --accent:#f97316;
+  --muted:#9aa7bf;
+  --glass: rgba(255,255,255,0.04);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#071028 0%, #071733 60%);
+  color:#e6eef8;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.container{
+  width:100%;
+  max-width:920px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:16px;
+  padding:28px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  text-align:center;
+}
+
+h1{
+  margin:0 0 18px 0;
+  font-size:1.6rem;
+  letter-spacing:0.4px;
+}
+
+.countdown-panel{
+  display:flex;
+  gap:28px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+
+/* Countdown boxes */
+.countdown{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.time-box{
+  background:var(--glass);
+  border-radius:10px;
+  padding:18px 14px;
+  min-width:90px;
+  text-align:center;
+  box-shadow: inset 0 -6px 18px rgba(0,0,0,0.35);
+}
+
+.time-box span{
+  display:block;
+  font-size:1.6rem;
+  font-weight:700;
+  color:#fff;
+}
+
+.time-box small{
+  display:block;
+  margin-top:6px;
+  font-size:0.82rem;
+  color:var(--muted);
+}
+
+/* Clock + digital */
+.clock-and-digital{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+/* Analog clock */
+.clock{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  position:relative;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.6), inset 0 -6px 12px rgba(0,0,0,0.5);
+  border: 2px solid rgba(255,255,255,0.03);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Dial marks */
+.dial{
+  position:absolute;
+  inset:0;
+  display:block;
+}
+.dial .mark{
+  position:absolute;
+  width:6px;height:14px;background:rgba(255,255,255,0.08);
+  top:8px; left:50%;
+  transform-origin:center 80px;
+  border-radius:3px;
+}
+.dial .mark1{ transform:translateX(-50%) rotate(0deg); }
+.dial .mark2{ transform:translateX(-50%) rotate(90deg); }
+.dial .mark3{ transform:translateX(-50%) rotate(180deg); }
+.dial .mark4{ transform:translateX(-50%) rotate(270deg); }
+
+/* Hands */
+.hand{
+  position:absolute;
+  left:50%;
+  transform-origin:50% 100%;
+  transform:translateX(-50%) rotate(0deg);
+  transition: transform 0.12s linear;
+  border-radius:6px;
+  pointer-events:none;
+}
+
+.hour{
+  width:8px;
+  height:48px;
+  bottom:50%;
+  background:linear-gradient(180deg, #ffffff, rgba(255,255,255,0.9));
+  opacity:0.95;
+}
+
+.minute{
+  width:6px;
+  height:66px;
+  bottom:50%;
+  background:linear-gradient(180deg, #fff, rgba(255,255,255,0.85));
+  opacity:0.9;
+}
+
+.second{
+  width:3px;
+  height:80px;
+  bottom:50%;
+  background:var(--accent);
+  opacity:0.95;
+  box-shadow: 0 0 12px rgba(249,115,22,0.25);
+}
+
+/* center dot */
+.center-dot{
+  width:12px;height:12px;border-radius:50%;
+  background:linear-gradient(180deg,#fff,#ffd6b3);
+  position:absolute;
+  left:50%; top:50%;
+  transform:translate(-50%,-50%);
+  box-shadow:0 2px 8px rgba(0,0,0,0.5);
+}
+
+/* Digital time */
+.digital{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  min-width:140px;
+}
+#digitalTime{
+  font-family: "SFMono-Regular", Menlo, Monaco, monospace;
+  background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  padding:10px 14px;
+  border-radius:8px;
+  box-shadow: inset 0 -6px 12px rgba(0,0,0,0.35);
+  font-weight:600;
+  letter-spacing:1px;
+}
+.note{ color:var(--muted); font-size:0.83rem; }
+
+/* footer */
+footer{ margin-top:18px; color:var(--muted); font-size:0.82rem; }
+
+/* responsive */
+@media (max-width:640px){
+  .countdown-panel{ gap:12px; }
+  .clock{ width:150px; height:150px; }
+  .time-box{ min-width:74px; padding:14px 10px; }
+}
